@@ -1,0 +1,59 @@
+.imagen{
+    width: 250px;
+    height: 250px;
+    top: 0px;
+}
+.parrafo{
+    margin-top: 100px;
+    background-color: rgb(188, 203, 218);
+    height: 70px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 50px;
+    border: 10px;
+}
+.logos{
+    width: 100px;
+    height: 100px;
+}
+.portada{
+    height: 100vh;
+    width: 100%;
+}
+body{
+    background-image: url(https://img.freepik.com/fotos-premium/codigo-secuencia-comandos-computadora-abstracta-pantalla-codigo-programacion-desarrollador-software-tiempo-trabajo-programacion-software-codigo-texto-escrito-creado-integramente-mi-mismo_372999-2438.jpg?w=740);
+    background-size: cover;
+}
+nav{
+    max-width: 900 px;
+    margin: auto;
+    background-color: rgb(6, 65, 25);
+    font-size: 16px;
+    margin-top: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.menu-horizontal{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+.menu-horizontal > li > a{
+    display: block;
+    padding: 15px 20 px;
+    color: white;
+    text-decoration: none;
+}
+.menu-horizontal > li:hover{
+    background-color: rgb(44, 31, 58);
+    display: block;
+}
+.Formulario{
+    margin-top: 500px;
+    background-color: rgb(135, 207, 204);
+    height: 300px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 50px;
+    border: 10px;
+
+}

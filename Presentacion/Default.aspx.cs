@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
+using Negocio;
 
 namespace Presentacion
 {
@@ -11,7 +13,14 @@ namespace Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["listaArticulos"] == null)
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                Session.Add("listaArticulos", negocio.listar_sp());
+            }
+            
+            dgvCatalogo.DataSource = Session["listaArticulos"];
+            dgvCatalogo.DataBind();
         }
     }
 }

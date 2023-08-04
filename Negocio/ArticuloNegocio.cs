@@ -8,8 +8,6 @@ using System.Configuration;
 using System.Collections;
 using System.Data.SqlTypes;
 
-
-
 namespace Negocio
 {
     public class ArticuloNegocio
@@ -84,6 +82,45 @@ namespace Negocio
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public List<Articulo> listar_sp()
+        {
+            List<Articulo> lista = new List<Articulo>();
+            establecerConexion();
+            try
+            {
+                datos.setearSP("sp_catalogo");
+                datos.ejecutarLector();
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.id = (int)datos.Lector["Id"];
+                    aux.codigo = (string)datos.Lector["Codigo"];
+                    aux.nombre = (string)datos.Lector["Nombre"];
+                    aux.descripcion = (string)datos.Lector["Descripcion"];
+                    aux.imagen = (string)datos.Lector["imagenurl"];
+                    aux.categoria = new Categoria();
+                    aux.categoria.id = (int)datos.Lector["IdCategoria"];
+                    aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    aux.marca = new Marca();
+                    aux.marca.id = (int)datos.Lector["IdMarca"];
+                    aux.marca.descripcion = (string)datos.Lector["Marca"];
+                    aux.precio = (float)(decimal)datos.Lector["precio"];
+                    lista.Add(aux);
+                }
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
             finally
